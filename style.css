@@ -1,0 +1,191 @@
+
+/* CSS RESET */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body, h1, h2, h3, h4, p,
+figure, blockquote, dl, dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements */
+:is(ul, ol) {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+
+/* Set shorter line heights on headings and interactive elements */
+h1, h2, h3, h4,
+button, input, label {
+  line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1, h2,
+h3, h4 {
+  text-wrap: balance;
+}
+
+/* Avoid orphans on paragraphs */
+p {
+    text-wrap: pretty;
+}
+
+
+a {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input, button,
+textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+/* FONTS */
+
+@font-face {
+    font-family: 'Karla';
+    src: url('assets/fonts/Karla-Regular.woff2') format("woff2");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Karla';
+    src: url('assets/fonts/Karla-Bold.woff2') format("woff2");
+    font-weight: 700;
+}
+
+/* CUSTOM PROPERTIES */
+
+:root {
+    /* COLORS: */
+
+    --clr-green-200: hsl(148, 38%, 91%); /* #E0F1E8 */
+    --clr-green-600: hsl(169, 82%, 27%); /* #0C7D69 */
+    --clr-green-900: hsl(168, 83%, 14%); /* #063F34 */
+    --clr-red: hsl(0, 66%, 56%); /* #D94747 */
+
+    --clr-grey-500: hsl(186, 15%, 59%); /* #86A2A5 */
+    --clr-grey-900: hsl(187, 24%, 22%); /* #2A4144 */
+    --clr-white: hsl(0, 0%, 100%); /* #FFF */
+
+    /* TYPOGRAPHY */
+
+    --ff-primary: 'Karla';
+    --fw-400: 400;
+    --fw-700: 700;
+    --fs-300: 1rem; /* 16px */
+    --fs-400: 1.125rem; /* 18px */
+    --fs-500: 2rem; /* 32px */
+
+    --lh-100: 1;
+    --lh-150: 1.5;
+
+    /* SPACING */
+
+    --spacing-100: .5rem; /* 8px */
+    --spacing-150: .75rem; /* 12px */
+    --spacing-200: 1rem; /* 16px */
+    --spacing-300: 1.5rem; /* 24px */
+    --spacing-400: 2rem; /* 32px */
+    --spacing-500: 2.5rem; /* 40px */
+    --spacing-1600: 8rem; /* 128px */
+
+    --flow-spacer: var(--spacing-300);
+}
+
+/* UTILITIES */
+
+.visually-hidden:not(:focus):not(:active) {
+  clip-path: inset(50%);
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  white-space: nowrap;
+}
+
+.flow {
+  --flow-space: var(--flow-spacer);
+}
+
+.flow > * + * {
+  margin-block-start: var(--flow-space);
+}
+
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100svh;
+  padding: var(--spacing-200);
+  font-family: var(--ff-primary), sans-serif;
+  font-size: var(--fs-400);
+  background-color: var(--clr-green-200);
+  color: var(--clr-grey-900);
+}
+
+.submit-btn {
+  border: transparent;
+  border-radius: 6px;
+  font-weight: var(--fw-700);
+  background-color: var(--clr-green-600);
+  color: var(--clr-white);
+  text-align: center;
+  padding-block: var(--spacing-200);
+  width: 100%;
+  cursor: pointer;
+
+  &:is(:hover, :focus-visible) {
+    background-color: var(--clr-green-900);
+  }
+}
+
+.contact-form {
+  background-color: var(--clr-white);
+  border-radius: var(--spacing-200);
+  max-width: 22rem;
+  padding: var(--spacing-300);
+
+  @media (width > 50rem) {
+    max-width: 60rem;
+    padding: var(--spacing-500);
+  }
+}
