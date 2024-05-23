@@ -46,7 +46,6 @@ p {
     text-wrap: pretty;
 }
 
-
 a {
   text-decoration-skip-ink: auto;
   color: currentColor;
@@ -75,6 +74,7 @@ textarea:not([rows]) {
 :target {
   scroll-margin-block: 5ex;
 }
+
 
 /* FONTS */
 
@@ -148,6 +148,7 @@ textarea:not([rows]) {
   margin-block-start: var(--flow-space);
 }
 
+/* BASE STYLES */
 
 body {
   display: flex;
@@ -157,26 +158,36 @@ body {
   min-height: 100svh;
   padding: var(--spacing-200);
   font-family: var(--ff-primary), sans-serif;
-  font-size: var(--fs-400);
+  font-size: var(--fs-300);
   background-color: var(--clr-green-200);
   color: var(--clr-grey-900);
+  line-height: var(--lh-150);
 }
 
-.submit-btn {
-  border: transparent;
-  border-radius: 6px;
-  font-weight: var(--fw-700);
-  background-color: var(--clr-green-600);
-  color: var(--clr-white);
-  text-align: center;
-  padding-block: var(--spacing-200);
+.error {
+  color: var(--clr-red);
+}
+
+.form-control {
+  --outline-color: var(--clr-grey-500);
+  display: block;
   width: 100%;
-  cursor: pointer;
+  outline: 1px solid var(--outline-color);
+  border: transparent;
+  border-radius: var(--spacing-100);
+  padding-block: var(--spacing-150);
+  padding-inline: var(--spacing-300);
 
-  &:is(:hover, :focus-visible) {
-    background-color: var(--clr-green-900);
+  @media (width > 50rem) {
+    /* --outline-color: var(--clr-red); */
   }
+
+  &:is(:focus-visible, :active) {
+    --outline-color: var(--clr-green-600);
+   }
 }
+
+/* FORM */
 
 .contact-form {
   background-color: var(--clr-white);
@@ -189,3 +200,134 @@ body {
     padding: var(--spacing-500);
   }
 }
+
+.form-heading {
+  line-height: var(--lh-100);
+  font-size: var(--fs-500);
+}
+
+.name-wrapper {
+  --flow-space: var(--spacing-400);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-200);
+
+  @media (width > 50rem) {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-300);
+  }  
+}
+
+.first-name-wrapper > * {
+  --flow-space: var(--spacing-100);
+}
+
+.last-name-wrapper > * {
+  --flow-space: var(--spacing-100);
+}
+
+.email-wrapper > * {
+  --flow-space: var(--spacing-100);
+}
+
+
+.query-wrapper-inner {
+  --flow-space: var(var(--spacing-200));
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-200);
+
+  @media (width > 50rem) {
+    grid-template-columns: 1fr 1fr;
+  }  
+}
+
+:is(.enquiry-wrapper, .support-wrapper) {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: var(--spacing-150);
+
+  --outline-color: var(--clr-grey-500);
+  outline: 1px solid var(--outline-color);
+  border: transparent;
+  border-radius: var(--spacing-100);
+  padding-block: var(--spacing-150);
+  padding-inline: var(--spacing-300);
+
+  @media (width > 50rem) {
+    /* --outline-color: var(--clr-red); */
+  }
+
+  &:is(:focus-visible, :active) {
+   --outline-color: var(--clr-green-600);
+    background-color: var(--clr-green-200);
+  }
+}
+
+
+
+.checkbox-wrapper {
+  --flow-space: var(--spacing-500);
+}
+
+.checkbox-wrapper > * {
+  --flow-space: var(--spacing-100);
+}
+
+.checkbox-wrapper-inner {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: var(--spacing-200);
+}
+
+.checkbox {
+  width: initial;
+}
+
+
+.btn-wrapper {
+  --flow-space: var(--spacing-500);
+}
+
+.submit-btn {
+  outline: none;
+  border: transparent;
+  border-radius: var(--spacing-100);
+  font-size: var(--fs-400);
+  font-weight: var(--fw-700);
+  background-color: var(--clr-green-600);
+  color: var(--clr-white);
+  text-align: center;
+  padding-block: var(--spacing-200);
+  cursor: pointer;
+
+  &:is(:hover, :focus-visible) {
+    background-color: var(--clr-green-900);
+  }
+}
+
+.required {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-100);
+}
+
+.success-message {
+  background-color: var(--clr-green-900);
+  color: var(--clr-green-200);
+  border-radius: var(--spacing-150);
+  padding-block: var(--spacing-300);
+  padding-inline: var(--spacing-300);
+}
+
+.success-message__heading {
+  color: var(--clr-white);
+  font-size: var(--fs-400);
+}
+
+.success-message__text {
+  --flow-space: var(--spacing-100);
+}
+
