@@ -187,7 +187,8 @@ body {
    }
 }
 
-/* FORM */
+
+
 
 .contact-form {
   background-color: var(--clr-white);
@@ -265,6 +266,10 @@ body {
   }
 }
 
+
+.message-wrapper > * {
+  --flow-space: var(--spacing-100);
+}
 
 
 .checkbox-wrapper {
