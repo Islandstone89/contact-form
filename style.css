@@ -184,6 +184,7 @@ body {
 
 .error {
   color: var(--clr-red);
+  display: none;
 }
 
 .form-control {
@@ -199,21 +200,43 @@ body {
     /* --outline-color: var(--clr-red); */
   }
 
-  &:is(:focus-visible, :active) {
+  &:is(:hover, :focus-visible, :active) {
     --outline-color: var(--clr-green-600);
    }
 }
+
 
 .form-control:not(input[type="radio"], input[type="checkbox"]) {
   outline: 1px solid var(--outline-color);
 }
 
-.form-control:is(input[type="radio"], input[type="checkbox"]) {
-  appearance: nones;
-  width: 24px;
-  height: 24px;
+:is(.form-control-wrapper:has(input[type="text"]:is(:active)), .form-control-wrapper:has(input[type="email"]:is(:active))) {
+  label {
+    color: var(--clr-green-600);
+  }
 }
 
+
+
+:is(.form-control-wrapper:has(input[type="text"]:required:invalid), .form-control-wrapper:has(input[type="email"]:required:invalid)) {
+  .form-control {
+    --outline-color: var(--clr-red);
+  }
+ /*  .error {
+    display: block;
+  } */
+}
+
+
+
+.form-control:is(input[type="radio"], input[type="checkbox"]) {
+  appearance: none;
+  padding: 0;
+  width: 18px;
+  height: 18px;
+  outline: 2px solid var(--clr-grey-500);
+  border-radius: 2px;
+}
 
 
 
@@ -291,6 +314,14 @@ body {
 
   &:is(:focus-visible, :active) {
    --outline-color: var(--clr-green-600);
+    background-color: var(--clr-green-200);
+  }
+
+  &:is(:hover, :active) {
+    color: var(--clr-green-600);
+  }
+
+  &:is(:active) {
     background-color: var(--clr-green-200);
   }
 }
