@@ -196,10 +196,6 @@ body {
   padding-block: var(--spacing-150);
   padding-inline: var(--spacing-300);
 
-  @media (width > 50rem) {
-    /* --outline-color: var(--clr-red); */
-  }
-
   &:is(:hover, :focus-visible, :active) {
     --outline-color: var(--clr-green-600);
    }
@@ -218,24 +214,77 @@ body {
 
 
 
-:is(.form-control-wrapper:has(input[type="text"]:required:invalid), .form-control-wrapper:has(input[type="email"]:required:invalid)) {
-  .form-control {
-    --outline-color: var(--clr-red);
-  }
- /*  .error {
-    display: block;
-  } */
+
+.form-control:is(input[type="radio"])  {
+  position: relative;
+  appearance: none;
+  padding: 0;
+  margin: 0;
+  outline: 2px solid var(--clr-grey-500);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.form-control:is(input[type="radio"])::before {
+  position: absolute;
+  display: block;
+  content: " ";
+  width: 10px;
+  height: 10px;
+  border-radius: 6px;
+  background-color: var(--clr-green-600);
+  font-size: 1.2em;
+  top: 2px;
+  right: 2px;
+  bottom: 2px;
+  left: 2px;
+  transform: translate(3px, 3px) scale(0);
+  transform-origin: center;
+  transition: all 0.3s ease-in;
+}
+
+
+.form-control:is(input[type="radio"]):checked {
+  outline: 2px solid var(--clr-green-600);
+}
+
+.form-control:is(input[type="radio"]):checked::before {
+  transform: translate(3px, 3px) scale(1);
+  transition: all 0.3s cubic-bezier(0.25, 0.25, 0.56, 2);
 }
 
 
 
-.form-control:is(input[type="radio"], input[type="checkbox"]) {
+
+.form-control:is(input[type="checkbox"]) {
+  position: relative;
   appearance: none;
   padding: 0;
-  width: 18px;
-  height: 18px;
+  margin: 0;
   outline: 2px solid var(--clr-grey-500);
+  width: 1em;
+  height: 1em;
   border-radius: 2px;
+}
+
+.form-control:is(input[type="checkbox"])::before {
+  position: absolute;
+  display: block;
+  content: "\2713";
+  color: var(--clr-white);
+  visibility: hidden;
+  left: .2em;
+}
+
+
+.form-control:is(input[type="checkbox"]):checked {
+  outline: 2px solid var(--clr-green-600);
+  background-color: var(--clr-green-600);
+}
+
+.form-control:is(input[type="checkbox"]):checked::before {
+  visibility: visible;
 }
 
 
@@ -308,13 +357,8 @@ body {
   padding-block: var(--spacing-150);
   padding-inline: var(--spacing-300);
 
-  @media (width > 50rem) {
-    /* --outline-color: var(--clr-red); */
-  }
-
-  &:is(:focus-visible, :active) {
+  &:is(:focus-visible) {
    --outline-color: var(--clr-green-600);
-    background-color: var(--clr-green-200);
   }
 
   &:is(:hover, :active) {
@@ -385,7 +429,7 @@ body {
   border-radius: var(--spacing-150);
   padding-block: var(--spacing-300);
   padding-inline: var(--spacing-300);
-  /* display: none; */
+  display: none;
 
   @media (width> 50rem) {
     position: absolute;
@@ -405,4 +449,3 @@ body {
   color: var(--clr-white);
   font-size: var(--fs-400);
 }
-
