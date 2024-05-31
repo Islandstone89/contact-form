@@ -21,20 +21,20 @@
         <div class="form-control-wrapper first-name-wrapper flow">
           <label for="fName" class="required">First Name <span class="star">*</span></label>
           <input type="text" name="firstName" id="fName" class="form-control">
-          <p class="error js-error first-name-error">This field is required</p>
-        </div><!-- end first-name-wrapper -->
+          <p class="error js-error hide" id="firstNameError">This field is required</p>
+        </div><!-- end first-name-wrapper --> 
 
         <div class="form-control-wrapper last-name-wrapper flow">
           <label for="lName" class="required">Last Name <span class="star">*</span></label>
           <input type="text" name="lastName" id="lName" class="form-control">
-          <p class="error js-error last-name-error">This field is required</p>
+          <p class="error js-error hide" id="lastNameError">This field is required</p>
         </div><!-- end last-name-wrapper -->
       </div><!-- end name-wrapper -->
 
       <div class="form-control-wrapper email-wrapper flow">
         <label for="emailInput" class="required">Email Address <span class="star">*</span></label>
         <input type="email" name="email" id="emailInput" class="form-control">
-        <p class="error js-error email-error">Please enter a valid email address
+        <p class="error js-error hide" id="emailError">Please enter a valid email address
           This field is required</p>
       </div><!-- end email-wrapper -->
 
@@ -51,22 +51,22 @@
             <input type="radio" name="queryType" id="supportRequest" value="2" class="form-control">
             <label for="supportRequest">Support Request</label>
           </div><!-- end support-wrapper -->
-          <p class="error js-error query-error">Please select a query type</p>
+          <p class="error js-error hide" id="queryError">Please select a query type</p>
         </div><!-- end query-wrapper-inner -->
       </div><!-- end query-wrapper -->
 
       <div class="form-control-wrapper message-wrapper flow">
         <label for="messageField" class="required">Message <span class="star">*</span></label>
         <textarea name="message" id="messageField" class="form-control"></textarea>
-        <p class="error js-error message-error">This field is required</p>
+        <p class="error js-error hide" id="messageError">This field is required</p>
       </div><!-- end message-wrapper -->
 
       <div class="form-control-wrapper checkbox-wrapper flow">
         <div class="checkbox-wrapper-inner">
-          <input type="checkbox" name="consent" id="consentCheckbox" class="checkbox form-control">
+          <input type="checkbox" name="consent" id="consentCheckbox" class="form-control">
           <label for="consentCheckbox" class="consent-text" class="required">I consent to being contacted by the team <span class="star">*</span></label>
         </div><!-- end checkbox-wrapper-inner -->
-        <p class="error js-error checkbox-error">To submit this form, please consent to being contacted</p>
+        <p class="error js-error hide" id="checkboxError">To submit this form, please consent to being contacted</p>
       </div><!-- end checkbox-wrapper-->
 
       <div class="btn-wrapper">

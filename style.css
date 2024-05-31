@@ -150,6 +150,10 @@ textarea:not([rows]) {
   margin-block-start: var(--flow-space);
 }
 
+.hide {
+  display: none;
+}
+
 /* BASE STYLES */
 
 body {
@@ -184,7 +188,7 @@ body {
 
 .error {
   color: var(--clr-red);
-  display: none;
+  /* display: none; */
 }
 
 .form-control {
