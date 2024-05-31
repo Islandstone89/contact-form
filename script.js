@@ -10,6 +10,13 @@ let firstName = document.getElementById("fName");
 let firstNameError = document.getElementById("firstNameError");
 
 
+firstName.addEventListener("blur", (e) => {
+    if (e.target.value === "") {
+        firstNameError.style.display = "block";
+    }
+})
+
+
 /* Select last name input */
 let lastName = document.getElementById("lName");
 
@@ -17,13 +24,28 @@ let lastName = document.getElementById("lName");
 let lastNameError = document.getElementById("lastNameError");
 
 
+
 /* Select email input */
 let email = document.getElementById("emailInput");
 
-/* Select email error message */
+/* Create email validation */
+let emailValidation = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+/* Select email error message for empty input */
 let emailError = document.getElementById("emailError");
 
+/* Select email error message for invalid email validation */
+let emailValidationError = document.getElementById("emailValidationError");
 
+
+/* Select radio buttons */
+let radioButtons = document.querySelectorAll("input[type=radio]");
+
+/* radioButtons.forEach((radiobutton) => {
+  if (radiobutton.value !== "1" || radiobutton.value !== "2")  {
+    queryError.style.display = "block";
+  }
+})  */
 
 /* Select General Enquiry radio button */
 let radiobutton1 = document.getElementById("generalEnquiry");
@@ -35,11 +57,13 @@ let radiobutton2 = document.getElementById("supportRequest");
 let queryError = document.getElementById("queryError");
 
 
+
 /* Select message field */
 let messageField = document.getElementById("messageField");
 
 /* Select message field error message*/
 let messageError = document.getElementById("messageError");
+
 
 
 /* Select checkbox */
@@ -66,11 +90,35 @@ function test(e) {
     }}) */
     successMessage.style.display = "block";
 
-    if (firstName.value === "") {
-        firstNameError.classList.toggle("hide");
+  /*   if (firstName.value === "") {
+        firstNameError.style.display = "block";
     }
 
-    else if (lastName.value === "") {
-        lastNameError.classList.toggle("hide");
+    else if (firstName.value !== "") {
+        firstNameError.style.display = "none";
+    } */
+
+    if (lastName.value === "") {
+        lastNameError.style.display = "block";
+    }
+
+    else if (lastName.value !== "") {
+        lastNameError.style.display = "none";
+    }
+
+    if (email.value === "") {
+        emailError.style.display = "block";
+    }
+
+    else if (email.value !== "") {
+        emailError.style.display = "none";
+    }
+
+    if (email.value.match(emailValidation)) {
+        emailValidationError.style.display = "block";
+    }
+
+    if (radiobutton1.value !== "1") {
+
     }
 }
