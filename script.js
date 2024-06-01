@@ -10,12 +10,6 @@ let firstName = document.getElementById("fName");
 let firstNameError = document.getElementById("firstNameError");
 
 
-firstName.addEventListener("blur", (e) => {
-    if (e.target.value === "") {
-        firstNameError.style.display = "block";
-    }
-})
-
 
 /* Select last name input */
 let lastName = document.getElementById("lName");
@@ -29,7 +23,7 @@ let lastNameError = document.getElementById("lastNameError");
 let email = document.getElementById("emailInput");
 
 /* Create email validation */
-let emailValidation = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+let emailValidation = "/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/";
 
 /* Select email error message for empty input */
 let emailError = document.getElementById("emailError");
@@ -81,22 +75,20 @@ let errorMessages = document.querySelectorAll(".js-error");
 /* Select success message  */
 let successMessage = document.querySelector(".success-message");
 
-form.addEventListener("submit", test);
+form.addEventListener("submit", validateForm);
 
-function test(e) {
+function validateForm(e) {
     e.preventDefault();
-   /*  errorMessages.forEach((error) => {{
-        error.style.display = "block";
-    }}) */
+
     successMessage.style.display = "block";
 
-  /*   if (firstName.value === "") {
+    if (firstName.value === "") {
         firstNameError.style.display = "block";
     }
 
     else if (firstName.value !== "") {
         firstNameError.style.display = "none";
-    } */
+    }
 
     if (lastName.value === "") {
         lastNameError.style.display = "block";
@@ -114,11 +106,25 @@ function test(e) {
         emailError.style.display = "none";
     }
 
-    if (email.value.match(emailValidation)) {
+/*     if (email.value !== "" && !emailValidation.test(email.value) ) {
         emailValidationError.style.display = "block";
+        }
+
+    else if (emailValidation.test(email.value)) {
+        emailValidationError.style.display = "none";
+    } */
+
+    if (radiobutton1.checked == "false" || radiobutton2.checked == "false") {
+        queryError.style.display = "block";
+        console.log("Hello");
     }
 
-    if (radiobutton1.value !== "1") {
+    if (messageField.value === "") {
+        messageError.style.display = "block";
+    }
+
+    else if (messageField.value !== "") {
+        messageError.style.display = "none";
+    }
 
     }
-}
