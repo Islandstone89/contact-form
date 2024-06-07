@@ -80,8 +80,6 @@ form.addEventListener("submit", validateForm);
 function validateForm(e) {
     e.preventDefault();
 
-    successMessage.style.display = "block";
-
     if (firstName.value === "") {
         firstNameError.style.display = "block";
     }
@@ -116,7 +114,6 @@ function validateForm(e) {
 
     if (radiobutton1.checked == "false" || radiobutton2.checked == "false") {
         queryError.style.display = "block";
-        console.log("Hello");
     }
 
     if (messageField.value === "") {
@@ -127,4 +124,11 @@ function validateForm(e) {
         messageError.style.display = "none";
     }
 
+    if (checkbox.checked === "false") {
+        console.log("Testing");
     }
+
+    else {
+        successMessage.style.display = "block";
+    }
+}
