@@ -207,6 +207,10 @@ body {
   outline: 1px solid var(--outline-color);
 }
 
+.form-control:not(input[type="radio"], input[type="checkbox"])[data-error="true"] {
+  --outline-color: var(--clr-red);
+}
+
 :is(.form-control-wrapper:has(input[type="text"]:is(:active)), .form-control-wrapper:has(input[type="email"]:is(:active))) {
   label {
     color: var(--clr-green-600);
@@ -289,6 +293,13 @@ body {
 }
 
 
+#fName[data-testing="false"] {
+  background-color: green;
+}
+
+#fName[data-testing="true"] {
+  background-color: red;
+}
 
 
 .contact-form {

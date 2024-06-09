@@ -20,20 +20,20 @@
       <div class="name-wrapper">
         <div class="form-control-wrapper first-name-wrapper flow">
           <label for="fName" class="required">First Name <span class="star">*</span></label>
-          <input type="text" name="firstName" id="fName" class="form-control" aria-describedby="firstNameError" autocomplete="given-name">
+          <input type="text" name="firstName" id="fName" class="form-control" aria-describedby="firstNameError" autocomplete="given-name" data-error="false">
           <p class="error js-error" id="firstNameError" aria-live="polite">This field is required</p>
         </div><!-- end first-name-wrapper --> 
 
         <div class="form-control-wrapper last-name-wrapper flow">
           <label for="lName" class="required">Last Name <span class="star">*</span></label>
-          <input type="text" name="lastName" id="lName" class="form-control" aria-describedby="lastNameError" autocomplete="family-name">
+          <input type="text" name="lastName" id="lName" class="form-control" aria-describedby="lastNameError" autocomplete="family-name" data-error="false">
           <p class="error js-error" id="lastNameError" aria-live="polite">This field is required</p>
         </div><!-- end last-name-wrapper -->
       </div><!-- end name-wrapper -->
 
       <div class="form-control-wrapper email-wrapper flow">
         <label for="emailInput" class="required">Email Address <span class="star">*</span></label>
-        <input type="email" name="email" id="emailInput" class="form-control" aria-describedby="emailError emailValidationError">
+        <input type="email" name="email" id="emailInput" class="form-control" aria-describedby="emailError emailValidationError" data-error="false">
         <p class="error js-error" id="emailError" aria-live="polite">This field is required</p>
         <p class="error js-error" id="emailValidationError" aria-live="polite">Please enter a valid email address</p>
       </div><!-- end email-wrapper -->
@@ -57,7 +57,7 @@
 
       <div class="form-control-wrapper message-wrapper flow">
         <label for="messageField" class="required">Message <span class="star">*</span></label>
-        <textarea name="message" id="messageField" class="form-control" aria-describedby="messageError"></textarea>
+        <textarea name="message" id="messageField" class="form-control" aria-describedby="messageError" data-error="false"></textarea>
         <p class="error js-error" id="messageError" aria-live="polite">This field is required</p>
       </div><!-- end message-wrapper -->
 

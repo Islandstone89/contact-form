@@ -23,7 +23,9 @@ let lastNameError = document.getElementById("lastNameError");
 let email = document.getElementById("emailInput");
 
 /* Create email validation */
-let emailValidation = "/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/";
+let emailValidation = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+
 
 /* Select email error message for empty input */
 let emailError = document.getElementById("emailError");
@@ -32,14 +34,6 @@ let emailError = document.getElementById("emailError");
 let emailValidationError = document.getElementById("emailValidationError");
 
 
-/* Select radio buttons */
-let radioButtons = document.querySelectorAll("input[type=radio]");
-
-/* radioButtons.forEach((radiobutton) => {
-  if (radiobutton.value !== "1" || radiobutton.value !== "2")  {
-    queryError.style.display = "block";
-  }
-})  */
 
 /* Select General Enquiry radio button */
 let radiobutton1 = document.getElementById("generalEnquiry");
@@ -82,50 +76,66 @@ function validateForm(e) {
 
     if (firstName.value === "") {
         firstNameError.style.display = "block";
+        firstName.setAttribute("data-error", true)
     }
 
     else if (firstName.value !== "") {
         firstNameError.style.display = "none";
+        firstName.setAttribute("data-error", false)
     }
 
     if (lastName.value === "") {
         lastNameError.style.display = "block";
+        lastName.setAttribute("data-error", true)
     }
 
     else if (lastName.value !== "") {
         lastNameError.style.display = "none";
+        lastName.setAttribute("data-error", false)
     }
 
     if (email.value === "") {
         emailError.style.display = "block";
+        email.setAttribute("data-error", true)
     }
 
     else if (email.value !== "") {
         emailError.style.display = "none";
     }
 
-/*     if (email.value !== "" && !emailValidation.test(email.value) ) {
+    if (email.value !== "" && !emailValidation.test(email.value) ) {
         emailValidationError.style.display = "block";
         }
 
     else if (emailValidation.test(email.value)) {
         emailValidationError.style.display = "none";
-    } */
+        email.setAttribute("data-error", false)
+    }
 
-    if (radiobutton1.checked == "false" || radiobutton2.checked == "false") {
+    if (!radiobutton1.checked || !radiobutton2.checked) {
         queryError.style.display = "block";
+    }
+
+    else if (radiobutton1.checked || radiobutton2.checked) {
+        queryError.style.display = "none";
     }
 
     if (messageField.value === "") {
         messageError.style.display = "block";
+        messageField.setAttribute("data-error", true)
     }
 
     else if (messageField.value !== "") {
         messageError.style.display = "none";
+        messageField.setAttribute("data-error", false)
     }
 
-    if (checkbox.checked === "false") {
-        console.log("Testing");
+    if (!checkbox.checked) {
+        checkboxError.style.display = "block";
+    }
+
+    else if (checkbox.checked) {
+        checkboxError.style.display = "none";
     }
 
     else {
