@@ -62,10 +62,6 @@ let checkboxError = document.getElementById("checkboxError");
 
 
 
-
-/* Select error messages */
-let errorMessages = document.querySelectorAll(".js-error");
-
 /* Select success message  */
 let successMessage = document.querySelector(".success-message");
 
@@ -112,13 +108,13 @@ function validateForm(e) {
         email.setAttribute("data-error", false)
     }
 
-    if (!radiobutton1.checked || !radiobutton2.checked) {
+/*     if (!radiobutton1.checked || !radiobutton2.checked) {
         queryError.style.display = "block";
     }
 
     else if (radiobutton1.checked || radiobutton2.checked) {
         queryError.style.display = "none";
-    }
+    } */
 
     if (messageField.value === "") {
         messageError.style.display = "block";
@@ -136,9 +132,6 @@ function validateForm(e) {
 
     else if (checkbox.checked) {
         checkboxError.style.display = "none";
-    }
-
-    else {
         successMessage.style.display = "block";
     }
 }
